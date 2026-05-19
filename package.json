@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jasonsilvaa/Hub-de-leitura-teste#readme",
   "dependencies": {
+    "@faker-js/faker": "^10.4.0",
     "cypress": "^15.15.0"
   }
 }
