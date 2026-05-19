@@ -30,7 +30,7 @@ describe('Funcionalidade: Cadastro no Hub de Leitura', () => {
         cy.url().should('include', '/dashboard.html');
         cy.get('#user-name').should('contain', name);
     });
-    it.only('Deve fazer cadastro com Page Object', () => {
+    it('Deve fazer cadastro com Page Object', () => {
         let email = `testes${Date.now()}@teste.com.br`;
         cadastroPage.preencherFormularioCadastro('Jason Silva', 'jason.silva@teste.com.br', '11999999999', '123456');
         cy.url().should('include', '/dashboard.html');
