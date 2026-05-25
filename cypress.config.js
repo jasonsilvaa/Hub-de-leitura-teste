@@ -9,6 +9,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: "http://localhost:3000",
-     projectId: "kftjyk"
+     projectId: "sdkv5h",
+     video: true,
   },
 });
