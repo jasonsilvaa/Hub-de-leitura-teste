@@ -23,3 +23,28 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login', (email, password) => {
+    cy.get('#email').type(email);
+    cy.get('#password').type(password);
+    cy.get('#login-btn').click();
+    cy.url().should('include', 'dashboard.html');
+});
+Cypress.Commands.add('register', (name, email, password) => {
+    cy.get('#name').type(name);
+    cy.get('#email').type(email);
+    cy.get('#password').type(password);
+    cy.get('#confirm-password').type(password);
+    cy.get('#terms-agreement').check();
+    cy.get('#register-btn').click();
+    cy.url().should('include', 'dashboard.html');
+    cy.get('#user-name').should('contain', name);
+});
+Cypress.Commands.add('contactForm', (name, email, subject, message) => {
+    cy.get('#name').type(name);
+    cy.get('#email').type(email);
+    cy.get('#subject').select(subject);
+    cy.get('#message').type(message);
+    cy.get('#btn-submit').click();
+    cy.contains('Contato enviado com sucesso!').should('exist');
+    cy.get('#alert-container').should('be.visible');
+});

@@ -46,4 +46,7 @@ describe('Funcionalidade: Contato', () => {
     cy.contains('Por favor, escreva sua Mensagem.').should('exist');
     cy.get('#alert-container').should('be.visible');
   });
+  it('Deve Solicitar suporte técnico e verificar a resposta com comando customizado', () => {
+    cy.contactForm('Jason Silva', 'teste@teste.com', 'Suporte Técnico', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+  });
 });

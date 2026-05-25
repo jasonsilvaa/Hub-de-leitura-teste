@@ -1,6 +1,7 @@
-import { faker } from '@faker-js/faker';
 
 /// <reference types="cypress" />
+import { faker } from '@faker-js/faker';
+
 describe('Funcionalidade: Cadastro', () => {
     beforeEach(() => {
         cy.visit('Register.html');
@@ -19,5 +20,8 @@ describe('Funcionalidade: Cadastro', () => {
        
        cy.url().should('include', 'dashboard.html');
        cy.get('#user-name').should('contain', name);
-    })
+    });
+    it('Deve fazer o cadastro com comando customizado',()=>{
+        cy.register(faker.person.fullName(), faker.internet.email(), faker.internet.password());
+    });
 });
