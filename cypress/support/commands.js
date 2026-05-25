@@ -23,16 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('login', (email, password) => {
-    cy.get('#email').type(email,{log: false});
-    cy.get('#password').type(password,{log: false});
-    cy.get('#login-btn').click();
-    cy.url().should('include', '/dashboard.html');  
-})
-
-Cypress.Commands.add('loginAdmin', (email, password) => {
-    cy.get('#email').type(email,{log: false});
-    cy.get('#password').type(password,{log: false});
-    cy.get('#login-btn').click();
-    cy.url().should('include', '/admin-dashboard.html');  
-})
