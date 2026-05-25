@@ -12,5 +12,15 @@ describe('Funcionalidade: Catalogo Busca', () => {
             cy.contains(livro.titulo).should('exist');
         });
     });
+    it('Deve buscar um livro com fixture e verificar os resultados', () => {
+        cy.fixture('livro').then((livros) => {
+            livros.forEach((livro) => {
+                cy.get('#search-input').clear().type(livro.titulo);
+                //cy.get('#search-button').click();
+                cy.get('.card').should('have.length', 1);
+                cy.contains(livro.titulo).should('exist');
+            });
+        });
+    });
 });
 
